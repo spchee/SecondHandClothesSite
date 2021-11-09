@@ -1,7 +1,7 @@
 # GET https://webapi.depop.com/api/v2/search/products/?what=cat&itemsPerPage=24&country=gb&currency=GBP
 import requests
 import json
-from items import item 
+from Products import Product
 
 class DepopAPI:
     def __init__(self):
@@ -27,7 +27,7 @@ class DepopAPI:
             for image in item["preview"].values():
                images.append(image)
 
-            item = item(name, price, url, images)
+            item = Product(name, price, url, images)
                 
     def generateItems(self, search):
         items = []
