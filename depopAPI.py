@@ -5,7 +5,7 @@ from Products import Product
 
 class DepopAPI:
     def __init__(self):
-        self.itemsPerPage = 1
+        self.itemsPerPage = 20
         self.country = 'gb'
         self.currency = 'GBP'
 
@@ -28,6 +28,7 @@ class DepopAPI:
                images.append(image)
 
             item = Product(name, price, url, images)
+            return item
                 
     def generateItems(self, search):
         items = []

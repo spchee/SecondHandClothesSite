@@ -4,8 +4,8 @@ class Product:
         self.price = price
         self.link = link
         self.images = images
-        #self.time = time
-
+        self.currentImage = images[0]
+        print(self.currentImage)
     def add_image(self, image):
         self.images.append(image)
     

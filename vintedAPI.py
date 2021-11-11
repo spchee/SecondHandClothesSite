@@ -32,7 +32,6 @@ class VintedAPI:
             images = []
             for image in item["photos"]:
                images.append(image["url"])
-            print(images, url, title, price)
             product = Product(title, price, url, images)
             return product
 
@@ -50,6 +49,3 @@ class VintedAPI:
         :return: None
         """
         self.session.get(url)
-
-vinted = VintedAPI()
-print(vinted.generateItems("cat"))

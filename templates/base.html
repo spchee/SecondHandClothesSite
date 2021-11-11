@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html lang="en-us">
-
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 5px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+</style>
 <head>
-{% inlcude 'search.html' %}
+    <title>{{ title }}</title>
 </head>
 
 <body>
-{% include 'results.html' %}
+    <div id = "results">
+        <div class="grid-container">
+            {% for product in products %}
+                <div class="grid-item">
+                    <a href = "{{ product.link }}"">
+                        
+                        <img src="{{ product.currentImage }}" alt = " product.currentImage " width = 300 >
+                        <h5 style = "color:rgb(17, 17, 17);">£{{ product.price }}</h6>
+                        <h6 style="color:rgb(153, 153, 153);" >{{ product.name }}</h4>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 </body>
 
-{% include 'footer.html' %}
 </html>
