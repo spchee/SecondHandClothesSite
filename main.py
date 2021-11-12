@@ -9,7 +9,34 @@ app = Flask(__name__)
 @app.route('/', methods=['POST', 'GET'])
 def search():
     if request.method == "GET":
-        search = "something"
+        print(1)
+        try:
+            search = request.form["search-box-form"]
+            products = []
+
+            depop = DepopAPI()
+            #ebay = EbayAPI()
+            vinted = VintedAPI()
+
+            products.extend(depop.generateItems(search))
+            print(products)
+            #items.extend(ebay.generateItems(search))
+            products.extend(vinted.generateItems(search))
+            random.shuffle(products)
+            print(search)
+            print(23)
+            products = []
+
+            depop = DepopAPI()
+            #ebay = EbayAPI()
+            vinted = VintedAPI()
+        except:
+            products = []
+        return render_template('base.html', products=products)
+    elif request.method == "POST":
+        search = request.form["search-box-form"]
+        print(search)
+        print(23)
         products = []
 
         depop = DepopAPI()
@@ -22,10 +49,6 @@ def search():
         products.extend(vinted.generateItems(search))
         random.shuffle(products)
         return render_template('base.html', products=products)
-    elif request.method == "POST":
-        search = request.form['search']
-        items = []
-
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -20,7 +20,14 @@
 </head>
 
 <body>
-    <div id = "results">
+
+    <div id = "search-box">
+        <form method="post" action = "/">
+        <input  placeholder = "enter serach here..."  name = "search-box-form" >
+        </form>
+    </div>
+    <br>
+    <div id = "results" >
         <div class="grid-container">
             {% for product in products %}
                 <div class="grid-item">
@@ -34,6 +41,18 @@
             {% endfor %}
         </div>
     </div>
+
+
+<script>
+    function submitSearch(e) {
+       if((e && e.keyCode == 13) || e == 0) {
+         alert("The form was submitted");
+         document.forms.form01.submit();
+         document.forms.form01.fname.value = ""; // could be form01.reset as well
+       }
+    }
+    </script>
+    
 </body>
 
 </html>
