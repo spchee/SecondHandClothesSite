@@ -9,7 +9,6 @@ app = Flask(__name__)
 @app.route('/', methods=['POST', 'GET'])
 def search():
     if request.method == "GET":
-        print(1)
         try:
             search = request.form["search-box-form"]
             products = []
@@ -24,7 +23,6 @@ def search():
             products.extend(vinted.generateItems(search))
             random.shuffle(products)
             print(search)
-            print(23)
             products = []
 
             depop = DepopAPI()

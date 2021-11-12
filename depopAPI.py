@@ -5,7 +5,7 @@ from Products import Product
 
 class DepopAPI:
     def __init__(self):
-        self.itemsPerPage = 20
+        self.itemsPerPage = 100
         self.country = 'gb'
         self.currency = 'GBP'
 
